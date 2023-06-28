@@ -1,25 +1,31 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { Nunito } from 'next/font/google'
+import "./globals.css";
+import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
+import Navbar from "./components/navbar/Navbar";
+import Modal from "./components/modals/Modal";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Airbnb',
-  description: 'Airbnb clone',
-}
+  title: "Airbnb",
+  description: "Airbnb clone",
+};
 const font = Nunito({
-  subsets:["latin"]
-})
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Modal isOpen title="henlo" />
+        <Navbar />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
