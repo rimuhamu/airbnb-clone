@@ -1,21 +1,21 @@
-import "./globals.css";
-import { Inter } from "next/font/google";
-import { Nunito } from "next/font/google";
-import Navbar from "./components/navbar/Navbar";
-import RegisterModal from "./components/modals/RegisterModal";
-import ToasterProvider from "./providers/ToasterProvider";
-import LoginModal from "./components/modals/LoginModal";
-import getCurrentUser from "./actions/getCurrentUser";
-import RentModal from "./components/modals/RentModal";
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { Nunito } from 'next/font/google';
+import Navbar from '@/components/navbar/Navbar';
+import RegisterModal from '@/components/modals/RegisterModal';
+import ToasterProvider from '@/providers/ToasterProvider';
+import LoginModal from '@/components/modals/LoginModal';
+import getCurrentUser from '@/actions/getCurrentUser';
+import RentModal from '@/components/modals/RentModal';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "Airbnb",
-  description: "Airbnb clone",
+  title: 'Airbnb',
+  description: 'Airbnb clone',
 };
 const font = Nunito({
-  subsets: ["latin"],
+  subsets: ['latin'],
 });
 
 export default async function RootLayout({
@@ -25,14 +25,14 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser();
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={font.className}>
         <ToasterProvider />
         <RegisterModal />
         <LoginModal />
         <RentModal />
         <Navbar currentUser={currentUser} />
-        <div className="pb-20 pt-28">{children}</div>
+        <div className='pb-20 pt-28'>{children}</div>
       </body>
     </html>
   );
